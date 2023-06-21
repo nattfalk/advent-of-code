@@ -1,0 +1,7 @@
+build
+uae/dh0/
+uae/dh0/aoc2021
+.DS_Store
+bin
+.vscode/settings.json
+days/*.txt

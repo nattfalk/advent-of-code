@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC2021", "AOC2021\AOC2021.csproj", "{B1B03A4B-0BE3-494C-94F6-29D3D6267D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC2021.Test", "AOC2021.Test\AOC2021.Test.csproj", "{BDFC306A-E159-4838-91E8-A8AECB82E681}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1B03A4B-0BE3-494C-94F6-29D3D6267D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1B03A4B-0BE3-494C-94F6-29D3D6267D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1B03A4B-0BE3-494C-94F6-29D3D6267D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1B03A4B-0BE3-494C-94F6-29D3D6267D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFC306A-E159-4838-91E8-A8AECB82E681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFC306A-E159-4838-91E8-A8AECB82E681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFC306A-E159-4838-91E8-A8AECB82E681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFC306A-E159-4838-91E8-A8AECB82E681}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41322780-7337-4B61-8943-C0584CEBDE1F}
+	EndGlobalSection
+EndGlobal
