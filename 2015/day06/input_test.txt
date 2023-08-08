@@ -1,0 +1,3 @@
+turn on 1,1 through 10,1
+turn off 6,1 through 10,1
+toggle 4,1 through 6,1
