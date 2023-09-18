@@ -22,8 +22,8 @@ static long Summarize(JToken token, bool skipRedObjects = false)
         
         if (t.Type == JTokenType.Integer)
             sum += t.Value<int>();
-        
-        sum += Summarize(t, skipRedObjects);
+        else
+            sum += Summarize(t, skipRedObjects);
     }
     return sum;
 }
