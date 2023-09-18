@@ -1,0 +1,29 @@
+{
+  "a": {
+    "aa": "red",
+    "c": 65,
+    "a": "orange",
+    "b": "green",
+    "d": "orange"
+  },
+  "b": [
+    "red",
+    {
+      "v": "red",
+      "a": 37
+    },
+    "green",
+    84,
+    "yellow",
+    "green",
+    [
+      24,
+      45,
+      "red",
+      "blue",
+      56,
+      "yellow"
+    ],
+    "orange"
+  ]
+}
