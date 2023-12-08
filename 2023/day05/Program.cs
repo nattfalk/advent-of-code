@@ -1,4 +1,9 @@
-﻿var lines = File.ReadAllLines("input.txt")
+﻿using System.Diagnostics;
+
+var sw = new Stopwatch();
+sw.Start();
+
+var lines = File.ReadAllLines("input.txt")
     .Where(x => !string.IsNullOrWhiteSpace(x))
     .ToList();
 
@@ -37,17 +42,54 @@ foreach (var seed in seeds)
 }
 Console.WriteLine($"Part 1: {minVal}");
 
-var newSeeds = new List<int>();
 minVal = long.MaxValue;
 for (var j=0; j<seeds.Count; j+=2)
 {
-    Console.WriteLine($"Seed group {j/2} ...");
-    for (var seed=seeds[j]; seed < (seeds[j] + seeds[j + 1] - 1); seed++)
+    var seedList = new List<(long, long)> { (seeds[j], seeds[j] + seeds[j + 1] - 1) };
+    foreach (var map in mapList)
     {
-        minVal = GetMinimumValue(seed, minVal);
+        var newSeedList = new List<(long, long)>();
+        foreach (var seed in seedList)
+        {
+            var min = seed.Item1;
+            var max = seed.Item2;
+            var fertilizerMatches = map
+                .Where(x => Math.Max(min, x.Min) <= Math.Min(max, x.Max))
+                .OrderBy(x => x.Min);
+            if (fertilizerMatches.Any())
+            {
+                foreach (var fertilizer in fertilizerMatches)
+                {
+                    if (min < fertilizer.Min)
+                    {
+                        newSeedList.Add((min, fertilizer.Min - 1));
+                        min = fertilizer.Min;
+                    }
+
+                    if (max <= fertilizer.Max)
+                    {
+                        newSeedList.Add((min + fertilizer.Diff, max + fertilizer.Diff));
+                        break;
+                    }
+
+                    newSeedList.Add((min + fertilizer.Diff, fertilizer.Max + fertilizer.Diff));
+                    min = fertilizer.Max + 1;
+                }
+            }
+            else
+            {
+                newSeedList.Add((min, max));
+            }
+        }
+        seedList = newSeedList.OrderBy(x => x.Item1).ToList();
     }
+
+    minVal = Math.Min(minVal, seedList.Min(x => x.Item1));
 }
+
 Console.WriteLine($"Part 2: {minVal}");
+sw.Stop();
+Console.WriteLine($"Total execution time: {sw.Elapsed.Minutes:00}:{sw.Elapsed.Seconds:00}.{sw.Elapsed.Milliseconds:000}");
 
 return;
 
