@@ -1,0 +1,43 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Day (dispatcher)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath}",
+      "args": ["${workspaceFolder}/run_day.py", "--day", "${input:dayNumber}"],
+      "presentation": {"reveal": "always"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Day Main (direct)",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath}",
+      "args": ["${workspaceFolder}/day${input:dayNumber}/main.py"],
+      "presentation": {"reveal": "always"},
+      "problemMatcher": []
+    },
+    {
+      "label": "Scaffold New Day",
+      "type": "shell",
+      "command": "${config:python.defaultInterpreterPath}",
+      "args": ["${workspaceFolder}/scaffold_day.py", "--day", "${input:newDayNumber}"],
+      "presentation": {"reveal": "always"},
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "dayNumber",
+      "type": "promptString",
+      "description": "Day number to run (e.g. 1 for day01)",
+      "default": "1"
+    },
+    {
+      "id": "newDayNumber",
+      "type": "promptString",
+      "description": "New day to scaffold (1-25)",
+      "default": "2"
+    }
+  ]
+}

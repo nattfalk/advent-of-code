@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Run Day (dispatcher)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_day.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "args": ["--day", "${input:dayNumber}"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Day Main (direct)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/day${input:dayNumber}/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "dayNumber",
+      "type": "promptString",
+      "description": "Day number (e.g. 1 for day01)",
+      "default": "1"
+    }
+  ]
+}
