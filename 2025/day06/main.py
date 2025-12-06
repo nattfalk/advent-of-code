@@ -14,9 +14,7 @@ def part1(data: list[str]) -> int:
 
     total = 0
     for i in range(0, len(values)):
-        match operators[i]:
-            case "+":  total += reduce(add, values[i])
-            case "*":  total += reduce(mul, values[i])
+        total += reduce(add if operators[i] == "+" else mul, values[i])
 
     return total
 
