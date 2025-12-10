@@ -13,3 +13,16 @@ def compute_distance_map_3d(data: list[list[int]]) -> dict[tuple[int,int], float
                 math.pow(n2[0]-n1[0], 2)+math.pow(n2[1]-n1[1],2)+math.pow(n2[2]-n1[2],2))
 
     return distance_map
+
+def compute_area_map(data: list[list[int]]) -> dict[tuple[int,int], int]:
+    area_map: dict[tuple[int,int], int] = {} 
+
+    for id1,n1 in enumerate(data):
+        for id2, n2 in enumerate(data):
+            if id1 == id2: continue
+
+            k = (id1, id2) if id1 < id2 else (id2, id1)
+
+            area_map[k] = (abs(n2[0] - n1[0]) + 1) * (abs(n2[1] - n1[1]) + 1)
+
+    return area_map
