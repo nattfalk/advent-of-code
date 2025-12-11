@@ -16,7 +16,7 @@ def find_out(key: str) -> int:
     return cnt
 
 @cache
-def find_out_dac_svr(key: str, dac: bool, fft: bool) -> int:
+def find_out_dac_fft(key: str, dac: bool, fft: bool) -> int:
     cnt = 0
     if key in initial_data:
         values = initial_data[key]
@@ -24,7 +24,7 @@ def find_out_dac_svr(key: str, dac: bool, fft: bool) -> int:
             if val == "out": return 1 if dac and fft else 0
             dac2 = True if val == "dac" else dac
             fft2 = True if val == "fft" else fft
-            cnt += find_out_dac_svr(val, dac2, fft2)
+            cnt += find_out_dac_fft(val, dac2, fft2)
 
     return cnt
 
@@ -45,7 +45,7 @@ def part2(data: list[str]) -> int:
             children = set(line[5:].split())
             initial_data[parent] = children
 
-    count = find_out_dac_svr("svr", False, False)
+    count = find_out_dac_fft("svr", False, False)
 
     return count
 
