@@ -1,9 +1,9 @@
+import sys
+import numpy as np
 from functools import reduce
 from operator import xor
-import sys
 from aoclib import load_input
 from itertools import combinations
-import numpy as np
 from scipy.optimize import linprog
 
 def create_combinations(input: list[int]) -> list[list[int]]:
