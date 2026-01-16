@@ -27,5 +27,6 @@ data2 = ["svr: aaa bbb",
         "fff: ggg hhh",
         "ggg: out",
         "hhh: out"]
+
 def test_part2_returns_correct_result():
     assert part2(data2) == 2
